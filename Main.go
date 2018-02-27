@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	var input = []int{3, 6, -2, -5, 7, 3}
-	fmt.Print(adjacentElementsProduct(input))
+	input := []int{1, 2, 5, 3, 5}
+	fmt.Print(almostIncreasingSequence(input))
 }
