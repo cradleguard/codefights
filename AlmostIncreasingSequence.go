@@ -1,51 +1,35 @@
 package main
 
 func almostIncreasingSequence(sequence []int) bool {
-	if len(sequence) == 2 {
-		if sequence[1] >= sequence[0] {
-			return true
+	// Find first sequence violation and save two elems sequence in it
+	skipIndxLeft := -1
+	skipIndxRight := -1
+	for i := 0; i < len(sequence)-1; i++ {
+		if sequence[i] >= sequence[i+1] {
+			skipIndxLeft = i
+			skipIndxRight = i + 1
+			break
 		}
-
-		return false
 	}
 
-	dublicate := make(map[int]int)
-	dublicateCount := 0
-	for i := 0; i <= len(sequence)-1; i++ {
-		dublicate[sequence[i]]++
-		if dublicate[sequence[i]] == 2 {
-			dublicateCount++
-		} else if dublicate[sequence[i]] == 3 {
+	// Find out which element should be skipped
+	skipIndx := -1
+	if skipIndxLeft == 0 {
+		skipIndx = skipIndxLeft
+	} else if sequence[skipIndxLeft-1] < sequence[skipIndxRight] {
+		skipIndx = skipIndxLeft
+	} else {
+		skipIndx = skipIndxRight
+	}
+
+	// Remove skipped element by some Golang magic
+	sequence = append(sequence[:skipIndx], sequence[skipIndx+1:]...)
+
+	// Find if there are other violation
+	for i := 0; i < len(sequence)-1; i++ {
+		if sequence[i] >= sequence[i+1] {
 			return false
 		}
 	}
-
-	if dublicateCount > 1 {
-		return false
-	}
-
-	candidatForDel := 0
-	for i := 0; i <= len(sequence)-2; i++ {
-		if sequence[i] <= sequence[i+1] {
-			continue
-		} else {
-			candidatForDel++
-		}
-	}
-
-	if candidatForDel > 1 {
-		return false
-	}
-
-	for i := 1; i <= len(sequence)-3; i++ {
-		if sequence[i] <= sequence[i+1] {
-			continue
-		} else {
-			if sequence[i+1] < sequence[i-1] {
-				return false
-			}
-		}
-	}
-
 	return true
 }
