@@ -9,18 +9,43 @@ func almostIncreasingSequence(sequence []int) bool {
 		return false
 	}
 
-	candidatForDel := make(map[int]int)
+	dublicate := make(map[int]int)
+	dublicateCount := 0
+	for i := 0; i <= len(sequence)-1; i++ {
+		dublicate[sequence[i]]++
+		if dublicate[sequence[i]] == 2 {
+			dublicateCount++
+		} else if dublicate[sequence[i]] == 3 {
+			return false
+		}
+	}
+
+	if dublicateCount > 1 {
+		return false
+	}
+
+	candidatForDel := 0
 	for i := 0; i <= len(sequence)-2; i++ {
 		if sequence[i] <= sequence[i+1] {
 			continue
 		} else {
-			_, ok := candidatForDel[i]
-			if !ok {
-				candidatForDel[i] = sequence[i]
-			}
-
+			candidatForDel++
 		}
 	}
 
-	return len(candidatForDel) <= 1
+	if candidatForDel > 1 {
+		return false
+	}
+
+	for i := 1; i <= len(sequence)-3; i++ {
+		if sequence[i] <= sequence[i+1] {
+			continue
+		} else {
+			if sequence[i+1] < sequence[i-1] {
+				return false
+			}
+		}
+	}
+
+	return true
 }
