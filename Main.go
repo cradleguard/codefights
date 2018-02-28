@@ -1,10 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	input := 1230
-	fmt.Print(isLucky(input))
+	input := []int{-1, 150, 190, 170, -1, -1, 160, 180}
+	fmt.Print(sortByHeight(input))
 }
