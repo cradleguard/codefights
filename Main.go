@@ -6,10 +6,8 @@ import (
 
 func main() {
 	input := []string{
-		"aba",
-		"aa",
-		"ad",
-		"vcd",
-		"aba"}
-	fmt.Print(allLongestStrings(input))
+		"aabcc",
+		"adcaa",
+	}
+	fmt.Print(commonCharacterCount(input[0], input[1]))
 }
