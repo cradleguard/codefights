@@ -5,6 +5,10 @@ import (
 )
 
 func main() {
-	input := []int{1, 2, 3, 4, 99, 5, 6}
-	fmt.Print(almostIncreasingSequence(input))
+	input := [][]int{
+		[]int{0, 1, 1, 2},
+		[]int{0, 5, 0, 0},
+		[]int{2, 0, 3, 3},
+	}
+	fmt.Print(matrixElementsSum(input))
 }
