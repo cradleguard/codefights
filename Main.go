@@ -5,6 +5,11 @@ import (
 )
 
 func main() {
-	input := []int{1, 2, 3, 4, 99, 5, 6}
-	fmt.Print(almostIncreasingSequence(input))
+	input := []string{
+		"aba",
+		"aa",
+		"ad",
+		"vcd",
+		"aba"}
+	fmt.Print(allLongestStrings(input))
 }
