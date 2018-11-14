@@ -1,13 +1,13 @@
 package main
 
 import (
+	"strconv"
 	"fmt"
-	"strings"
 )
 
 func main() {
-	input := []string{"abc", "ded"}
-	str := strings.Join(addBorder(input), ", ")
-	fmt.Println("Output: [" + str + "]")
-	fmt.Println("Expected: " + "[\"*****\", \"*abc*\",\"*ded*\",\"*****\"]")
+	inputA := []int{2, 1, 2, 1, 1, 1, 2}
+	inputB := []int{1, 1, 2, 1, 2, 1, 2}
+	fmt.Println("Output: " + strconv.FormatBool(areSimilar(inputA,inputB)))
+	fmt.Println("Expected: true")
 }
