@@ -6,8 +6,7 @@ import (
 )
 
 func main() {
-	inputA := []int{2, 1, 2, 1, 1, 1, 2}
-	inputB := []int{1, 1, 2, 1, 2, 1, 2}
-	fmt.Println("Output: " + strconv.FormatBool(areSimilar(inputA,inputB)))
+	input := []int{1, 1, 1}
+	fmt.Println("Output: " + strconv.Itoa(arrayChange(input)))
 	fmt.Println("Expected: true")
 }
