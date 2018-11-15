@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	input := []int{1, 1, 1}
-	fmt.Println("Output: " + strconv.Itoa(arrayChange(input)))
+	input := "zaa"
+	fmt.Println("Output: " + strconv.FormatBool(palindromeRearranging(input)))
 	fmt.Println("Expected: true")
 }
